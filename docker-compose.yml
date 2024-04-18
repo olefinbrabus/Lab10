@@ -1,0 +1,20 @@
+﻿version: "3.1"
+
+services:
+  
+  lab10:
+    image: lab10
+    build:
+      context: .
+      dockerfile: Lab10/Dockerfile
+
+  postgres:
+    image: "postgres:14-alpine"
+    ports:
+      - "5432:5432"
+    volumes:
+      - ~/apps/postgres:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_PASSWORD=S3cret
+      - POSTGRES_USER=User
+      - POSTGRES_DB=PostgresDb
